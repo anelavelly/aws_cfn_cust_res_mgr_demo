@@ -1,6 +1,6 @@
 sys_path: ./
 namespace: ${customer}-${environment}
-stacker_bucket: stacker-${customer}-${environment}-${region}
+stacker_bucket: stacker-${customer}-${environment}-${region}-aneesh
 
 common_parameters: &common_parameters
   ResMgmtFunArn: ${xref cfn-res-mgr-${environment}::LambdaFunctionArn}
@@ -10,17 +10,17 @@ stacks:
     template_path: templates/icon.yaml
     variables:
       << : *common_parameters
-      Type: bomb
+      Type: sql
   widget2:
     template_path: templates/icon.yaml
     variables:
       << : *common_parameters
-      Type: squid
+      Type: key
   widget3:
     template_path: templates/icon.yaml
     variables:
       << : *common_parameters
-      Type: crown
+      Type: pd
   widget4:
     template_path: templates/icon.yaml
     variables:
